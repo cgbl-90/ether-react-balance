@@ -15,14 +15,17 @@ export default function GetBalanceData() {
     setBalance(reply._hex);
   }
 
+  function defineAddress(event) {
+    setAddress(event.target.value);
+    if (address === "") setBalance(0);
+  }
+
   return (
     <main>
       <span>
+        <h1>ETH Wallet Balance</h1>
         <form>
-          <input
-            type="text"
-            onChange={(event) => setAddress(event.target.value)}
-          />
+          <input type="text" onChange={defineAddress} />
           <button onClick={requestBalance}>SEARCH</button>
         </form>
         <br />
